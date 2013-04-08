@@ -1,0 +1,41 @@
+{
+	"name": "Pomodoro",
+	"version": "1.1",
+	"manifest_version": 2,
+	
+	"description": "A Chrome extension for timing pomodori - part of the Pomodoro technique for time management",
+	"icons": {
+		"16": "assets/pomodoro-16.png",
+		"48": "assets/pomodoro-48.png",
+		"128": "assets/pomodoro-128.png"
+	},
+	
+	"browser_action": {
+		"default_icon": "assets/pomodoro-128.png",
+		"default_title": "Pomodoro",
+		"default_popup": "popup.html"
+	},
+	
+	"background": {
+        "scripts": [
+            "js/jquery-1.9.1.min.js",
+            "js/pomodoro.js"
+        ]
+    },
+	
+	"content_scripts": [
+	   {
+	       "matches": ["http://jquery.com/*"],
+	       "js": ["js/jquery-1.9.1.min.js"]
+	   }
+	],
+	
+	"permissions": [
+		"notifications"
+	],
+	
+	"web_accessible_resources": [
+	   "assets/pomodoro-128.png"
+	]
+
+}
