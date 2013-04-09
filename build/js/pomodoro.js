@@ -35,7 +35,6 @@ var pomodoro = {
 	},
 	
 	tick: function () {
-		console.log("Tick");
 		if (pomodoro.countdown > 0) {
 			pomodoro.countdown --;
 		}
