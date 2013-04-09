@@ -35,6 +35,7 @@ var pomodoro = {
 	},
 	
 	tick: function () {
+		console.log("Tick");
 		if (pomodoro.countdown > 0) {
 			pomodoro.countdown --;
 		}
@@ -49,6 +50,12 @@ var pomodoro = {
 	},
 
 	start: function () {
+		// stop the timer if it's already running, or we'll start doing everything double-time
+		if (this.timer != null) {
+			clearInterval(this.timer);
+			this.timer = null;
+		}
+
 		this.countdown = this.WORK_DURATION;
 		this.state = this.RUNNING;
 		this.timer = setInterval(this.tick, this.TICK_FREQUENCY);
